@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package apis.account.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "openapiv3/annotations.proto";
+
+option go_package = "github.com/eiixy/go-keg/apis/api/account/v1";
+option (openapi.v3.document) = {
+  servers: [
+    {
+      description: "local"
+      url:"http://127.0.0.1:8080"
+    }, {
+      description: "production"
+      url:"https://api.example.com"
+    }
+  ]
+  components:{
+    security_schemes:{
+      additional_properties: [
+        {
+          name:"jwt",
+          value:{
+            security_scheme:{
+              type: "http"
+              scheme: "bearer"
+              bearer_format: "JWT"
+            }
+          }
+        }
+      ]
+    }
+  }
+};
+
+
+service AccountService {
+  rpc Profile(google.protobuf.Empty) returns (Account){
+    option (google.api.http) = {
+      get: "/profile"
+    };
+  }
+  rpc Login(google.protobuf.Empty) returns (LoginReply){
+    option (google.api.http) = {
+      post: "/login"
+      body: "*"
+    };
+  }
+}
+
+message Account {
+  int64 id = 1;
+  string nickname = 2;
+}
+
+message LoginRequest{
+  string account = 1;
+  string password = 2;
+}
+
+message LoginReply{
+  int64 exp = 1;
+  string token = 2;
+  Account account = 3;
+}
