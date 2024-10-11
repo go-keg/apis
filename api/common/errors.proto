@@ -4,7 +4,7 @@ package apis.common;
 
 import "response/response.proto";
 
-option go_package = "github.com/eiixy/go-keg/apis/api/common;common";
+option go_package = "github.com/go-keg/apis/api/common;common";
 
 // code range 100001 - 109999
 enum CommonError {

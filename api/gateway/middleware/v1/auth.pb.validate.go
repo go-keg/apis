@@ -56,8 +56,6 @@ func (m *Auth) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for DiscoveryDSN
-
 	{
 		sorted_keys := make([]string, len(m.GetDomains()))
 		i := 0

@@ -57,8 +57,6 @@ func (m *Permission) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for DiscoveryDSN
-
 	// no validation rules for Domain
 
 	if len(errors) > 0 {

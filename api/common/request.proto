@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package apis.common;
 
-option go_package = "github.com/eiixy/go-keg/apis/api/common;common";
+option go_package = "github.com/go-keg/apis/api/common;common";
 
-message Id{
+message ID{
 	uint32 id = 1;
 }
 
