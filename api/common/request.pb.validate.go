@@ -35,21 +35,21 @@ var (
 	_ = sort.Sort
 )
 
-// Validate checks the field values on Id with the rules defined in the proto
+// Validate checks the field values on ID with the rules defined in the proto
 // definition for this message. If any rules are violated, the first error
 // encountered is returned, or nil if there are no violations.
-func (m *Id) Validate() error {
+func (m *ID) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on Id with the rules defined in the
+// ValidateAll checks the field values on ID with the rules defined in the
 // proto definition for this message. If any rules are violated, the result is
-// a list of violation errors wrapped in IdMultiError, or nil if none found.
-func (m *Id) ValidateAll() error {
+// a list of violation errors wrapped in IDMultiError, or nil if none found.
+func (m *ID) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *Id) validate(all bool) error {
+func (m *ID) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -59,18 +59,18 @@ func (m *Id) validate(all bool) error {
 	// no validation rules for Id
 
 	if len(errors) > 0 {
-		return IdMultiError(errors)
+		return IDMultiError(errors)
 	}
 
 	return nil
 }
 
-// IdMultiError is an error wrapping multiple validation errors returned by
-// Id.ValidateAll() if the designated constraints aren't met.
-type IdMultiError []error
+// IDMultiError is an error wrapping multiple validation errors returned by
+// ID.ValidateAll() if the designated constraints aren't met.
+type IDMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m IdMultiError) Error() string {
+func (m IDMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -79,11 +79,11 @@ func (m IdMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m IdMultiError) AllErrors() []error { return m }
+func (m IDMultiError) AllErrors() []error { return m }
 
-// IdValidationError is the validation error returned by Id.Validate if the
+// IDValidationError is the validation error returned by ID.Validate if the
 // designated constraints aren't met.
-type IdValidationError struct {
+type IDValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -91,22 +91,22 @@ type IdValidationError struct {
 }
 
 // Field function returns field value.
-func (e IdValidationError) Field() string { return e.field }
+func (e IDValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e IdValidationError) Reason() string { return e.reason }
+func (e IDValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e IdValidationError) Cause() error { return e.cause }
+func (e IDValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e IdValidationError) Key() bool { return e.key }
+func (e IDValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e IdValidationError) ErrorName() string { return "IdValidationError" }
+func (e IDValidationError) ErrorName() string { return "IDValidationError" }
 
 // Error satisfies the builtin error interface
-func (e IdValidationError) Error() string {
+func (e IDValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -118,14 +118,14 @@ func (e IdValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sId.%s: %s%s",
+		"invalid %sID.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = IdValidationError{}
+var _ error = IDValidationError{}
 
 var _ interface {
 	Field() string
@@ -133,7 +133,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = IdValidationError{}
+} = IDValidationError{}
 
 // Validate checks the field values on Key with the rules defined in the proto
 // definition for this message. If any rules are violated, the first error
