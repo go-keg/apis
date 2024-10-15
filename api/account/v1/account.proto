@@ -35,7 +35,6 @@ option (openapi.v3.document) = {
   }
 };
 
-
 service AccountService {
   rpc Profile(google.protobuf.Empty) returns (Account){
     option (google.api.http) = {

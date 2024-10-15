@@ -2,12 +2,9 @@ syntax = "proto3";
 
 package apis.account.v1;
 
-
 import "common/request.proto";
 
 option go_package = "github.com/go-keg/apis/api/account/v1";
-
-
 
 service AuthService {
   rpc Permissions(apis.common.ID) returns (PermissionsReply);

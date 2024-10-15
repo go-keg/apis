@@ -43,7 +43,7 @@ func IsErrValidate(err error) bool {
 }
 
 func ErrValidate(args ...interface{}) *response.Response {
-	return response.Newf(200, 100003, CommonError_ErrValidate.String(), "%s", args...)
+	return response.Newf(200, 100003, CommonError_ErrValidate.String(), "Validate Error %s", args...)
 }
 
 func IsErrUnauthorized(err error) bool {
@@ -73,65 +73,11 @@ func ErrTokenExpiration(args ...interface{}) *response.Response {
 	return response.Newf(200, 100102, CommonError_ErrTokenExpiration.String(), "Token Expiration", args...)
 }
 
-func IsErrNoPartnerIdentity(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrNoPartnerIdentity.String() && e.GetCode() == 100110
-}
-
-func ErrNoPartnerIdentity(args ...interface{}) *response.Response {
-	return response.Newf(200, 100110, CommonError_ErrNoPartnerIdentity.String(), "The account does not have partner identity", args...)
-}
-
-func IsErrNoMerchantIdentity(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrNoMerchantIdentity.String() && e.GetCode() == 100111
-}
-
-func ErrNoMerchantIdentity(args ...interface{}) *response.Response {
-	return response.Newf(200, 100111, CommonError_ErrNoMerchantIdentity.String(), "The account does not have merchant identity", args...)
-}
-
-func IsErrNoBankerIdentity(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrNoBankerIdentity.String() && e.GetCode() == 100112
-}
-
-func ErrNoBankerIdentity(args ...interface{}) *response.Response {
-	return response.Newf(200, 100112, CommonError_ErrNoBankerIdentity.String(), "The account does not have banker identity", args...)
-}
-
-func IsErrNoOrganizationIdentity(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrNoOrganizationIdentity.String() && e.GetCode() == 100113
-}
-
-func ErrNoOrganizationIdentity(args ...interface{}) *response.Response {
-	return response.Newf(200, 100113, CommonError_ErrNoOrganizationIdentity.String(), "The account does not have organization identity", args...)
-}
-
 func IsErrPermissionDenied(err error) bool {
 	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrPermissionDenied.String() && e.GetCode() == 100120
+	return e.GetReason() == CommonError_ErrPermissionDenied.String() && e.GetCode() == 100103
 }
 
 func ErrPermissionDenied(args ...interface{}) *response.Response {
-	return response.Newf(200, 100120, CommonError_ErrPermissionDenied.String(), "Permission Denied", args...)
-}
-
-func IsErrResourceNotFound(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrResourceNotFound.String() && e.GetCode() == 100201
-}
-
-func ErrResourceNotFound(args ...interface{}) *response.Response {
-	return response.Newf(404, 100201, CommonError_ErrResourceNotFound.String(), "Resource Not Found", args...)
-}
-
-func IsErrQueryConditionIsEmpty(err error) bool {
-	e := response.FromError(err)
-	return e.GetReason() == CommonError_ErrQueryConditionIsEmpty.String() && e.GetCode() == 100202
-}
-
-func ErrQueryConditionIsEmpty(args ...interface{}) *response.Response {
-	return response.Newf(200, 100202, CommonError_ErrQueryConditionIsEmpty.String(), "Query Condition Is Empty", args...)
+	return response.Newf(200, 100103, CommonError_ErrPermissionDenied.String(), "Permission Denied", args...)
 }
