@@ -40,6 +40,14 @@ service AccountService {
     option (google.api.http) = {
       get: "/profile"
     };
+    option (openapi.v3.operation) = {
+      security: {
+        additional_properties: {
+          name: "jwt"
+          value: {}
+        }
+      }
+    };
   }
   rpc Login(google.protobuf.Empty) returns (LoginReply){
     option (google.api.http) = {

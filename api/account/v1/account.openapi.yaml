@@ -51,6 +51,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+            security:
+                - jwt: []
 components:
     schemas:
         Account:
